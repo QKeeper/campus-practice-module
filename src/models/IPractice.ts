@@ -9,7 +9,7 @@ export interface IPractice {
 	internshipEnding?: Date | string | undefined; // Дата окончания стажировки
 	isActive?: boolean; // Проходит ли набор
 	description: string; // Описание
-	testTask?: string | URL | undefined; // Описание тестового задания
-	employerHref: string | URL; // Ссылка на сайт работодателя (набор на практику)
-	// reviews: IReview[];
+	testTask?: string | undefined; // Описание тестового задания
+	employerHref: string; // Ссылка на сайт работодателя (набор на практику)
+	reviews: IReview[];
 }

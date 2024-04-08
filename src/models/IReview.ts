@@ -3,6 +3,6 @@ export interface IReview {
 	name: string; // Имя пользователя
 	age: number; // Возраст
 	currentPosition: string; // Текущая должность пользователя
-	profilePhoto: string | URL; // Ссылка на фото
+	profilePhoto: string; // Ссылка на фото
 	description: string; // Текст отзыва
 }

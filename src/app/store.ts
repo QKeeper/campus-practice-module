@@ -1,11 +1,14 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
+import { practicesApi } from "../features/practice/practiceApiSlice";
 
-/* Тут будут слайсы */
-const rootReducer = combineSlices();
+const rootReducer = combineSlices({
+	[practicesApi.reducerPath]: practicesApi.reducer,
+});
 
 export const store = configureStore({
 	reducer: rootReducer,
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({ serializableCheck: false }).concat(practicesApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
