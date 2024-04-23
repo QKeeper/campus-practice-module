@@ -1,5 +1,3 @@
-import { IReview } from "./IReview";
-
 export interface IPractice {
 	id: number;
 	role: string; // Направление стажировки
@@ -11,5 +9,4 @@ export interface IPractice {
 	description: string; // Описание
 	testTask?: string | undefined; // Описание тестового задания
 	employerHref: string; // Ссылка на сайт работодателя (набор на практику)
-	reviews: IReview[];
 }

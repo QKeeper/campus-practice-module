@@ -1,0 +1,38 @@
+.header {
+	position: relative;
+	width: 100vw;
+	height: 132px;
+}
+
+.background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 132px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0px;
+		top: 0;
+		width: calc((100vw - 1360px) / 2);
+		height: 107px;
+		background-color: #f42e30;
+	}
+
+	.pattern {
+		position: absolute;
+		left: calc(max(calc((100vw - 1360px) / 2), 40px) - 303px);
+		top: 0;
+	}
+}
+
+.content {
+	position: absolute;
+	left: 0;
+	bottom: 41px;
+	right: 0;
+	margin-right: max(calc((100vw - 1360px) / 2), 15px);
+	margin-left: calc(max(calc((100vw - 1360px) / 2), 40px) + 212px);
+}
