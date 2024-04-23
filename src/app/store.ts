@@ -1,5 +1,5 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
-import { practicesApi } from "../features/practice/practiceApiSlice";
+import { practicesApi } from "../features/practice/practicesApiSlice";
 
 const rootReducer = combineSlices({
 	[practicesApi.reducerPath]: practicesApi.reducer,
