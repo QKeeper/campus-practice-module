@@ -1,16 +1,20 @@
 import { IPractice } from "../../models/IPractice";
 import { useGetPracticesQuery } from "../../features/practice/practicesApiSlice";
 import { cn } from "../../hooks/utils";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 
 export default function Practices() {
-	const { data, isLoading } = useGetPracticesQuery();
+	const { data, isSuccess } = useGetPracticesQuery();
+	const [localPractices, setLocalPractices] = useLocalStorage<IPractice[]>("practices", []);
+
+	useEffect(() => {
+		if (isSuccess) setLocalPractices(data);
+	}, [isSuccess]);
+
 	const [active, setActive] = useState<
 		"аналитик" | "frontend" | "backend" | "менеджер" | "qa" | "другое"
 	>("аналитик");
-
-	if (isLoading) return <code>Loading...</code>;
-	if (!data?.length) return <code>No data</code>;
 
 	return (
 		<>
@@ -36,12 +40,11 @@ export default function Practices() {
 				</Button>
 			</div>
 			<div className="flex flex-wrap justify-start gap-4">
-				{data
-					.filter((practice) => practice.role.toLowerCase().includes(active))
-					.sort((a, b) => (a.isActive === b.isActive ? 0 : a.isActive ? -1 : 1))
-					.map((practice) => (
-						<Practice key={practice.id} {...practice} />
-					))}
+				{localPractices &&
+					localPractices
+						.filter((practice) => practice.role.toLowerCase().includes(active))
+						.sort((a, b) => (a.isActive === b.isActive ? 0 : a.isActive ? -1 : 1))
+						.map((practice) => <Practice key={practice.id} {...practice} />)}
 			</div>
 		</>
 	);
