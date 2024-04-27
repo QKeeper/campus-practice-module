@@ -18,6 +18,8 @@ export default function Comments() {
 	const prevReview = () =>
 		setCurrentReview((review) => (review > 0 ? review - 1 : localReviews.length - 1));
 
+	if (!localReviews.length) return;
+
 	return (
 		<div className="flex gap-8 w-full">
 			<Button onClick={prevReview}>

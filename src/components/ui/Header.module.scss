@@ -36,3 +36,28 @@
 	margin-right: max(calc((100vw - 1360px) / 2), 15px);
 	margin-left: calc(max(calc((100vw - 1360px) / 2), 40px) + 212px);
 }
+
+.dropdown__menu {
+	.dropdown__container {
+		display: none;
+	}
+	&:focus-within {
+		.dropdown__container {
+			display: block;
+			animation-name: fadein;
+			animation-duration: 0.2s;
+			animation-timing-function: ease;
+			animation-direction: normal;
+		}
+	}
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 100;
+	}
+}

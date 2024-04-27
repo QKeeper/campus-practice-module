@@ -3,6 +3,7 @@ import Brand from "../common/Brand";
 import PatternHeader from "../common/PatternHeader";
 import styles from "./Header.module.scss";
 import { cn } from "../../hooks/utils";
+import { Link } from "react-router-dom";
 
 export default function Header() {
 	return (
@@ -19,10 +20,24 @@ export default function Header() {
 					<NavLink href="https://studgorod.ru/#news">Новости</NavLink>
 					<NavLink href="https://studgorod.ru/#events">Мероприятия</NavLink>
 					<NavLink href="https://studgorod.ru/partners">Партнёры</NavLink>
-					<NavLink>
-						Еще
-						<ChevronDown size={20} strokeWidth={2.12} className="scale-[1.2] ml-[0.1rem]" />
-					</NavLink>
+
+					<DropDownMenu title="Ещё">
+						<DropDownItem href="https://studgorod.ru/pages/bonusnaya-programma">
+							Бонусная программа
+						</DropDownItem>
+						<DropDownItem href="https://studgorod.ru/pages/lgotnye-kredity-na-obrazovanie">
+							Льготные кредиты на образование
+						</DropDownItem>
+						<DropDownItem href="https://studgorod.ru/pages/stipendialnaya-programma">
+							Стипендиальные программа
+						</DropDownItem>
+						<DropDownItem href="/">Практико-ориентированность</DropDownItem>
+						<DropDownItem href="https://studgorod.ru/pages/kontakty">Контакты</DropDownItem>
+						<DropDownItem href="https://studgorod.ru/pages/o-fonde-kampus">
+							О фонде "Кампус"
+						</DropDownItem>
+					</DropDownMenu>
+
 					<NavLink icon className="ml-auto">
 						<Search strokeWidth={1.5} />
 					</NavLink>
@@ -59,5 +74,39 @@ function NavLink({ icon, children, className, ...rest }: NavLinkProps) {
 				{children}
 			</a>
 		</li>
+	);
+}
+
+function DropDownMenu({ className, children, title }: React.ComponentPropsWithRef<"div">) {
+	return (
+		<li
+			className={cn(
+				"bg-[#ececec] text-[#353f2f] rounded-full relative",
+				styles.dropdown__menu,
+				className
+			)}
+		>
+			<button className="rounded-full text-xl leading-none flex items-center justify-center gap-1 px-5 py-3">
+				{title}
+				<ChevronDown />
+			</button>
+
+			<div
+				className={cn(
+					"absolute top-0 left-0 bg-white rounded-2xl shadow-md w-96 overflow-hidden",
+					styles.dropdown__container
+				)}
+			>
+				{children}
+			</div>
+		</li>
+	);
+}
+
+function DropDownItem({ href, children }: React.ComponentPropsWithRef<"a">) {
+	return (
+		<Link to={href || "/"} className="block text-xl p-4 hover:bg-[#e8e4fc]">
+			{children}
+		</Link>
 	);
 }
