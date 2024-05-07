@@ -13,19 +13,13 @@ interface ArticleProps {
 	footer?: boolean;
 }
 
-export default function Article({
-	children,
-	className,
-	patternBg,
-	patternColor,
-	title,
-	middle,
-	footer,
-}: ArticleProps) {
+export default function Article({ children, className, patternBg, patternColor, title, middle, footer }: ArticleProps) {
 	return (
 		<div>
 			<div style={{ backgroundColor: patternColor }}>
-				<article className={cn("container mx-auto max-w-[1280px]", className)}>{children}</article>
+				<article className={cn("container mx-auto max-w-[1214px] px-2 sm:px-8 xl:px-16 py-4", className)}>
+					{children}
+				</article>
 			</div>
 			<div about="pattern-wrapper" style={{ backgroundColor: patternBg }}>
 				{title && <PatternTitle fill={patternColor} />}
