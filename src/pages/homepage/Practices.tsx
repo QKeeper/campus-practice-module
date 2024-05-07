@@ -12,14 +12,12 @@ export default function Practices() {
 		if (isSuccess) setLocalPractices(data);
 	}, [isSuccess]);
 
-	const [active, setActive] = useState<
-		"аналитик" | "frontend" | "backend" | "менеджер" | "qa" | "другое"
-	>("аналитик");
+	const [active, setActive] = useState<"аналитик" | "frontend" | "backend" | "менеджер" | "qa" | "другое">("аналитик");
 
 	return (
 		<>
-			<h2 className="text-5xl font-bold text-white mb-8">Стажировка у партнёров</h2>
-			<div className="flex gap-2 mb-8">
+			<h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-8">Стажировка у партнёров</h2>
+			<div className="flex flex-wrap gap-2 mb-8">
 				<Button {...{ active: active == "аналитик" }} onClick={() => setActive("аналитик")}>
 					Аналитик
 				</Button>
@@ -39,7 +37,7 @@ export default function Practices() {
 					Другое
 				</Button>
 			</div>
-			<div className="flex flex-wrap justify-start gap-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
 				{localPractices &&
 					localPractices
 						.filter((practice) => practice.role.toLowerCase().includes(active))
@@ -79,7 +77,7 @@ function Practice({
 }: IPractice) {
 	return (
 		<a
-			className={cn("p-6 rounded-3xl bg-white w-[300px] relative flex flex-col", {
+			className={cn("p-6 rounded-3xl bg-white relative flex flex-col", {
 				"opacity-60": !isActive,
 			})}
 			href={employerHref}
@@ -89,9 +87,7 @@ function Practice({
 			<p>{description}</p>
 			<div className="mt-auto text-sm leading-5">
 				<p className="mt-4 text-black text-opacity-50 font-medium">
-					{internshipBeginning && (
-						<span>с {new Date(internshipBeginning).toLocaleDateString()}</span>
-					)}
+					{internshipBeginning && <span>с {new Date(internshipBeginning).toLocaleDateString()}</span>}
 					{internshipEnding && <span> до {new Date(internshipEnding).toLocaleDateString()}</span>}
 				</p>
 			</div>

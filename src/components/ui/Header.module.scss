@@ -61,3 +61,21 @@
 		opacity: 100;
 	}
 }
+
+.appear {
+	animation-name: appear;
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-direction: normal;
+}
+
+@keyframes appear {
+	from {
+		scale: 0;
+		opacity: 0;
+	}
+	to {
+		scale: 1;
+		opacity: 1;
+	}
+}
