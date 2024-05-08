@@ -103,7 +103,10 @@ function HeaderMobile() {
 						<Search className="" />
 					</button>
 				</form>
-				<ul className="mt-4 bg-white pt-4 rounded-t-2xl *:text-xl md:*:text-2xl">
+				<div className="bg-[#f42e30] w-full h-4 mt-4 sticky top-0">
+					<div className="w-full h-full bg-white rounded-t-2xl" />
+				</div>
+				<ul className="bg-white pt-4 *:text-xl md:*:text-2xl">
 					<DropDownItem href="https://studgorod.ru/#news">Новости</DropDownItem>
 					<DropDownItem href="https://studgorod.ru/#events">Мероприятия</DropDownItem>
 					<DropDownItem href="https://studgorod.ru/partners">Партнёры</DropDownItem>

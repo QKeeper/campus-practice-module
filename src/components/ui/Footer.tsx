@@ -21,8 +21,9 @@ export default function Footer() {
 					</div>
 				</div>
 				<div className="lg:w-[816px] mt-5 lg:mt-auto">
-					<div className="bg-[#ececec] px-[16px] py-[10px] rounded-full">
+					<div className="bg-[#ececec] px-4 h-11 rounded-full flex items-center gap-2">
 						<Search strokeWidth={1.6} />
+						<input className="px-2 h-full w-full bg-transparent outline-none" placeholder="Поиск" />
 					</div>
 					<div className="mt-6 flex flex-col md:flex-row justify-between text-lg">
 						<ul className="w-[240px] space-y-[20px]">
