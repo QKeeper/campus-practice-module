@@ -22,7 +22,7 @@ export default function Header() {
 
 function HeaderDesktop() {
 	return (
-		<div className={cn("hidden xl:block", styles.header)}>
+		<div className={cn("hidden xl:block select-none", styles.header)}>
 			<div className={styles.background}>
 				<div className={styles.pattern}>
 					<PatternHeader className="absolute" />
@@ -72,7 +72,7 @@ function HeaderMobile() {
 
 	return (
 		<>
-			<div className="block xl:hidden h-[125px] relative">
+			<div className="block xl:hidden h-[125px] relative select-none">
 				<Brand fill="#f42e30" className="absolute left-1/2 h-[56px] bottom-[35px] -translate-x-1/2" />
 				<PatternHeader small className="absolute left-0 bottom-[25px]" />
 				<div className="absolute bottom-0 bg-[#f42e30] h-[25px] w-full rounded-tr-[20px]" />
