@@ -7,13 +7,13 @@ import WhatsApp from "../icons/WhatsApp";
 
 export default function Footer() {
 	return (
-		<footer className="container max-w-[1360px] px-4 mx-auto leading-none text-[#352f2f]">
+		<footer className="container max-w-[1360px] px-4 mx-auto leading-none text-[#352f2f] text-base md:text-lg">
 			<div className="flex flex-col lg:flex-row">
-				<div className="md:w-[544px] text-lg">
-					<Brand className="h-[67px]" />
+				<div className="md:w-[544px]">
+					<Brand className="h-[40px] md:h-[67px]" />
 					<p className="mt-8 mb-6 lg:w-1/2">Екатеринбург - студенческая столица России</p>
 					<p>Подпишитесь на наши соцсети</p>
-					<div className="flex gap-5 h-[45px] mt-4">
+					<div className="flex gap-5 h-[45px] mt-4 mb-6">
 						<Ok />
 						<Vk />
 						<Tg />
@@ -25,8 +25,8 @@ export default function Footer() {
 						<Search strokeWidth={1.6} />
 						<input className="px-2 h-full w-full bg-transparent outline-none" placeholder="Поиск" />
 					</div>
-					<div className="mt-6 flex flex-col md:flex-row justify-between text-lg">
-						<ul className="w-[240px] space-y-[20px]">
+					<div className="mt-6 flex flex-col md:flex-row justify-between">
+						<ul className="w-[240px] space-y-[16px]">
 							<li>
 								<a href="https://studgorod.ru/#news">Новости</a>
 							</li>
@@ -40,7 +40,7 @@ export default function Footer() {
 								<a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
 							</li>
 						</ul>
-						<ul className="md:w-[560px] text-[#8a72f0] underline space-y-[20px] mt-6 xl:mt-0">
+						<ul className="md:w-[560px] text-[#8269ef] underline space-y-[20px] mt-6 xl:mt-0">
 							<li>
 								<a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">
 									Политика конфиденциальности
